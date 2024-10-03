@@ -43,6 +43,17 @@ If i can manage it, make the body follow behind the head sortof like a snake to 
 
 Beluga whales have a functional neck unlike most whales with fused spine??
 
+## Music
+
+needs to have that slow aquaticy feel
+- *upright bass solos sound like whales lol*
+- think slow, strumming, try not to make too tropical
+- think bubbly
+
+and also that frosty artic feel, think snow theme from terraria
+https://www.youtube.com/watch?v=HPjl7tIJfAE
+https://www.youtube.com/watch?v=8kREx5W-JMQ
+
 ## Your Prey
 - *needs more research on what beluga whales eat*
 
@@ -51,6 +62,13 @@ Beluga whales have a functional neck unlike most whales with fused spine??
 ## Your Preditors
 - *needs more research on what eats beluga whales*
 - get short warning of vibrations of preditor but no definitive visuals, makes you keep watching your back. Gotta make the player paranoid.
+
+### Sound design of preditor encounters
+
+like the General Grievous theme from Star Wars Clone Wars 2003
+it needs to contrast the aquatic frosty themes
+https://www.youtube.com/watch?v=WIj7gIDFDe4
+https://www.youtube.com/watch?v=dUS8YwLPlrY
 
 ### killer whales
 
