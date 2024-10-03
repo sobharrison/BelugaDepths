@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://2wyeaa7pm7ss"]
+
+[ext_resource type="PackedScene" uid="uid://csh4sm1xfiohm" path="res://scenes/player_beluga.tscn" id="1_rbm3b"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(22, 101, 20, 154, 88, 153, 117, 114, 69, 86)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-269, -27)
+polygon = PackedVector2Array(98, 337, 27, 479, 129, 520, 255, 574, 296, 657, 363, 569, 333, 488, 238, 438, 202, 497, 144, 464, 158, 397)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(441, -12, 589, -73, 707, -90, 743, -358, 944, -435, 1163, -378, 1653, -131, 1202, 36, 961, 124, 881, 180, 853, 234, 698, 254, 537, 257, 452, 216, 503, 345, 765, 390, 965, 371, 996, 246, 1070, 432, 956, 705, 663, 701, 530, 561, 454, 618, 503, 751, 628, 862, 1466, 643, 1873, -255, 1103, -529, 688, -490, 674, -166, 586, -186, 458, -145, 414, -64)
+
+[node name="Beluga2D" parent="." instance=ExtResource("1_rbm3b")]

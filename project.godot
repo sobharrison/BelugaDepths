@@ -11,5 +11,19 @@ config_version=5
 [application]
 
 config/name="Beluga Depths"
+run/main_scene="res://scenes/test_map.tscn"
 config/features=PackedStringArray("4.3")
-config/icon="res://icon.png"
+boot_splash/bg_color=Color(0.0355011, 0.164837, 0.369858, 1)
+boot_splash/image="res://belugaDepths_icon_oct_2_2024.png"
+config/icon="res://belugaDepths_icon_oct_2_2024.png"
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Walls"
+2d_physics/layer_3="Prey"
+2d_physics/layer_4="Predator"
+
+[physics]
+
+2d/physics_engine="Rapier2D"
