@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://csh4sm1xfiohm"]
+[gd_scene load_steps=4 format=3 uid="uid://csh4sm1xfiohm"]
 
 [ext_resource type="Texture2D" uid="uid://csqsqfgan0l3o" path="res://belugaDepths_icon_oct_2_2024.png" id="1_0l5h8"]
 [ext_resource type="Script" path="res://scenes/player_beluga.gd" id="1_l2xnq"]
+[ext_resource type="Script" path="res://scenes/echo_location.gd" id="3_itf7t"]
 
 [node name="Beluga2D" type="CharacterBody2D"]
 collision_mask = 14
@@ -18,3 +19,4 @@ polygon = PackedVector2Array(-58, -59, -64, -35, -64, 37, -49, 61, 53, 63, 62, 5
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(203, 0)
 collision_mask = 14
+script = ExtResource("3_itf7t")
