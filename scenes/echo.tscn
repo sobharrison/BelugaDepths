@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d01f4pv2e5vpr"]
+
+[ext_resource type="Script" path="res://scenes/echo.gd" id="1_cd4wc"]
+
+[node name="Echo" type="Node2D"]
+script = ExtResource("1_cd4wc")
+
+[node name="raypop" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, -46, -48, 11, 21, 32, 34, -16)
