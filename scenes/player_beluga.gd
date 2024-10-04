@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY: float = -400.0
 
-const ECHO_DISTANCE = 200.0
+const ECHO_DISTANCE = 500.0
 
 
 func _physics_process(delta: float) -> void:
@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 	if self.get_child(-1).get_class() == "RayCast2D":
 		lazor = self.get_child(-1)
 		#var newLazor: Vector2 = Vector2(1, 13)
-		print_rich("[color=Cyan][pulse freq=2.5]Firin My Lazor[/pulse][/color]", lazor.target_position, "[color=Cyan][pulse freq=2.5]; [/pulse][/color]", lazor.target_position.angle())
+		#print_rich("[color=Cyan][pulse freq=2.5]Firin My Lazor[/pulse][/color]", lazor.target_position, "[color=Cyan][pulse freq=2.5]; [/pulse][/color]", lazor.target_position.angle())
 		
 		#lazor.target_position = lazor.target_position.rotated(1 * (PI / 180))
 		if lazor.target_position.angle() != velocity.angle():
