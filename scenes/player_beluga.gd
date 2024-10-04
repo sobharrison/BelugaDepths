@@ -39,3 +39,12 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.bounce(collision_info.get_normal())
 
 	#print_rich("[rainbow freq=1.0 sat=0.8 val=0.8]x[/rainbow]", velocity.x, "[rainbow freq=1.0 sat=0.8 val=0.8]y[/rainbow]", velocity.y)
+
+	var lazor: RayCast2D
+	if self.get_child(-1).get_class() == "RayCast2D":
+		lazor = self.get_child(-1)
+		var newLazor: Vector2 = Vector2(1, 13)
+		print_rich("[color=Cyan][pulse freq=2.5]Firin My Lazor[/pulse][/color]", lazor.target_position, "[color=Cyan][pulse freq=2.5]; [/pulse][/color]", lazor.target_position.angle())
+		lazor.target_position = lazor.target_position.rotated(1 * (PI / 180))
+		
+		

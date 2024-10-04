@@ -16,5 +16,5 @@ polygon = PackedVector2Array(-58, -59, -64, -35, -64, 37, -49, 61, 53, 63, 62, 5
 [node name="Camera2D2" type="Camera2D" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(197, 0)
+target_position = Vector2(203, 0)
 collision_mask = 14
