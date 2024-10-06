@@ -1,40 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://2wyeaa7pm7ss"]
+[gd_scene load_steps=4 format=3 uid="uid://2wyeaa7pm7ss"]
 
+[ext_resource type="Shader" path="res://Shaders/echo_ping.gdshader" id="1_oeesp"]
 [ext_resource type="PackedScene" uid="uid://csh4sm1xfiohm" path="res://scenes/player_beluga.tscn" id="1_rbm3b"]
-[ext_resource type="Texture2D" uid="uid://csqsqfgan0l3o" path="res://belugaDepths_icon_oct_2_2024.png" id="2_lo76r"]
-[ext_resource type="PackedScene" uid="uid://d01f4pv2e5vpr" path="res://scenes/echo.tscn" id="3_gejsn"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ef22p"]
-polygon = PackedVector2Array(0, 0, 5000, 0, 0, 5000)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i3el6"]
+shader = ExtResource("1_oeesp")
 
 [node name="test_map2D" type="Node2D"]
 
+[node name="Beluga2D" parent="." instance=ExtResource("1_rbm3b")]
+top_level = true
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+material = SubResource("ShaderMaterial_i3el6")
 collision_layer = 2
 collision_mask = 13
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+use_parent_material = true
+polygon = PackedVector2Array(22, 101, 20, 154, 88, 153, 117, 114, 69, 86)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+use_parent_material = true
+color = Color(0.348874, 0.729036, 0.419593, 0.368627)
 polygon = PackedVector2Array(22, 101, 20, 154, 88, 153, 117, 114, 69, 86)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+use_parent_material = true
 position = Vector2(-269, -27)
 polygon = PackedVector2Array(98, 337, 27, 479, 129, 520, 255, 574, 296, 657, 363, 569, 333, 488, 238, 438, 202, 497, 144, 464, 158, 397)
 
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D2"]
+use_parent_material = true
+color = Color(0.415686, 0.333333, 0.552941, 0.603922)
+polygon = PackedVector2Array(98, 337, 27, 479, 129, 520, 255, 574, 296, 657, 363, 569, 333, 488, 238, 438, 202, 497, 144, 464, 158, 397)
+
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+use_parent_material = true
 polygon = PackedVector2Array(441, -12, 589, -73, 707, -90, 743, -358, 944, -435, 1163, -378, 1653, -131, 1202, 36, 961, 124, 881, 180, 853, 234, 698, 254, 537, 257, 452, 216, 503, 345, 765, 390, 965, 371, 996, 246, 1070, 432, 956, 705, 663, 701, 530, 561, 454, 618, 503, 751, 628, 862, 1466, 643, 1873, -255, 1103, -529, 688, -490, 674, -166, 586, -186, 458, -145, 414, -64)
 
-[node name="Beluga2D" parent="." instance=ExtResource("1_rbm3b")]
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D3"]
+use_parent_material = true
+color = Color(0.498039, 0.384314, 0.184314, 0.541176)
+polygon = PackedVector2Array(441, -12, 589, -73, 707, -90, 743, -358, 944, -435, 1163, -378, 1653, -131, 1202, 36, 961, 124, 881, 180, 853, 234, 698, 254, 537, 257, 452, 216, 503, 345, 765, 390, 965, 371, 996, 246, 1070, 432, 956, 705, 663, 701, 530, 561, 454, 618, 503, 751, 628, 862, 1466, 643, 1873, -255, 1103, -529, 688, -490, 674, -166, 586, -186, 458, -145, 414, -64)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(845, 211)
-color = Color(0.512524, 0.993491, 0.728753, 1)
-energy = 10.05
-texture = ExtResource("2_lo76r")
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+use_parent_material = true
+color = Color(0.0837248, 0.492909, 0.454188, 1)
+polygon = PackedVector2Array(-106, -115, -110, 4, -103, 60, 111, -119)
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_ef22p")
-
-[node name="Echos" type="Node2D" parent="."]
-
-[node name="Echo" parent="." instance=ExtResource("3_gejsn")]
-position = Vector2(132, -64)
+[node name="Echos" type="CanvasGroup" parent="."]

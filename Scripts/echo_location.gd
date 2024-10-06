@@ -24,9 +24,7 @@ func _process(delta: float) -> void:
 			echos.add_child(echo_instance)
 		
 		# REMOVE THIS SECTION LATER
-		if self.get_parent().get_parent().get_child(-1).get_class() == "Polygon2D":
-			var pop = self.get_parent().get_parent().get_child(-1)
-			print(pop.get_global_position())
-			pop.set_global_position(self.get_collision_point())
-			
-			
+		#if self.get_parent().get_parent().get_child(-1).get_class() == "Polygon2D":
+		#	var pop = self.get_parent().get_parent().get_child(-1)
+		#	print(pop.get_global_position())
+		#	pop.set_global_position(self.get_collision_point())

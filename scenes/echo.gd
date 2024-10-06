@@ -5,7 +5,7 @@ extends Node2D
 func _ready() -> void:
 	var timer := Timer.new()
 	add_child(timer)
-	timer.wait_time = 4.0
+	timer.wait_time = 20.0
 	timer.one_shot = true
 	timer.timeout.connect(func(): self.queue_free())
 	timer.start()
