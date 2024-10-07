@@ -23,6 +23,7 @@ config/icon="res://belugaDepths_icon_oct_2_2024.png"
 2d_physics/layer_2="Walls"
 2d_physics/layer_3="Prey"
 2d_physics/layer_4="Predator"
+2d_physics/layer_5="Visuals"
 
 [physics]
 

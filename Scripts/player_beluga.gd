@@ -5,6 +5,10 @@ const JUMP_VELOCITY: float = -400.0
 
 const ECHO_DISTANCE = 500.0
 
+@export var multimesh: MultiMeshInstance2D
+
+func _ready():
+	multimesh.clip_children = CanvasItem.CLIP_CHILDREN_ONLY
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

@@ -1,52 +1,74 @@
-[gd_scene load_steps=4 format=3 uid="uid://2wyeaa7pm7ss"]
+[gd_scene load_steps=7 format=3 uid="uid://2wyeaa7pm7ss"]
 
-[ext_resource type="Shader" path="res://Shaders/echo_ping.gdshader" id="1_oeesp"]
 [ext_resource type="PackedScene" uid="uid://csh4sm1xfiohm" path="res://scenes/player_beluga.tscn" id="1_rbm3b"]
+[ext_resource type="Shader" path="res://Shaders/test_shader.gdshader" id="2_po726"]
+[ext_resource type="Texture2D" uid="uid://csqsqfgan0l3o" path="res://belugaDepths_icon_oct_2_2024.png" id="3_agtrp"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i3el6"]
-shader = ExtResource("1_oeesp")
+[sub_resource type="SphereMesh" id="SphereMesh_ot0o6"]
+radius = 60.0
+height = 120.0
+
+[sub_resource type="MultiMesh" id="MultiMesh_fqauj"]
+mesh = SubResource("SphereMesh_ot0o6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g76wh"]
+shader = ExtResource("2_po726")
 
 [node name="test_map2D" type="Node2D"]
 
-[node name="Beluga2D" parent="." instance=ExtResource("1_rbm3b")]
+[node name="Beluga2D" parent="." node_paths=PackedStringArray("multimesh") instance=ExtResource("1_rbm3b")]
 top_level = true
+multimesh = NodePath("../MultiMeshInstance2D")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-material = SubResource("ShaderMaterial_i3el6")
+[node name="MultiMeshInstance2D" type="MultiMeshInstance2D" parent="."]
+multimesh = SubResource("MultiMesh_fqauj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MultiMeshInstance2D"]
+material = SubResource("ShaderMaterial_g76wh")
 collision_layer = 2
 collision_mask = 13
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MultiMeshInstance2D/StaticBody2D"]
 use_parent_material = true
 polygon = PackedVector2Array(22, 101, 20, 154, 88, 153, 117, 114, 69, 86)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+[node name="Polygon2D" type="Polygon2D" parent="MultiMeshInstance2D/StaticBody2D/CollisionPolygon2D"]
 use_parent_material = true
 color = Color(0.348874, 0.729036, 0.419593, 0.368627)
 polygon = PackedVector2Array(22, 101, 20, 154, 88, 153, 117, 114, 69, 86)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="MultiMeshInstance2D/StaticBody2D"]
 use_parent_material = true
 position = Vector2(-269, -27)
 polygon = PackedVector2Array(98, 337, 27, 479, 129, 520, 255, 574, 296, 657, 363, 569, 333, 488, 238, 438, 202, 497, 144, 464, 158, 397)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D2"]
+[node name="Polygon2D" type="Polygon2D" parent="MultiMeshInstance2D/StaticBody2D/CollisionPolygon2D2"]
 use_parent_material = true
 color = Color(0.415686, 0.333333, 0.552941, 0.603922)
 polygon = PackedVector2Array(98, 337, 27, 479, 129, 520, 255, 574, 296, 657, 363, 569, 333, 488, 238, 438, 202, 497, 144, 464, 158, 397)
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="MultiMeshInstance2D/StaticBody2D"]
 use_parent_material = true
 polygon = PackedVector2Array(441, -12, 589, -73, 707, -90, 743, -358, 944, -435, 1163, -378, 1653, -131, 1202, 36, 961, 124, 881, 180, 853, 234, 698, 254, 537, 257, 452, 216, 503, 345, 765, 390, 965, 371, 996, 246, 1070, 432, 956, 705, 663, 701, 530, 561, 454, 618, 503, 751, 628, 862, 1466, 643, 1873, -255, 1103, -529, 688, -490, 674, -166, 586, -186, 458, -145, 414, -64)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D3"]
+[node name="Polygon2D" type="Polygon2D" parent="MultiMeshInstance2D/StaticBody2D/CollisionPolygon2D3"]
 use_parent_material = true
 color = Color(0.498039, 0.384314, 0.184314, 0.541176)
 polygon = PackedVector2Array(441, -12, 589, -73, 707, -90, 743, -358, 944, -435, 1163, -378, 1653, -131, 1202, 36, 961, 124, 881, 180, 853, 234, 698, 254, 537, 257, 452, 216, 503, 345, 765, 390, 965, 371, 996, 246, 1070, 432, 956, 705, 663, 701, 530, 561, 454, 618, 503, 751, 628, 862, 1466, 643, 1873, -255, 1103, -529, 688, -490, 674, -166, 586, -186, 458, -145, 414, -64)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+[node name="Polygon2D" type="Polygon2D" parent="MultiMeshInstance2D/StaticBody2D"]
 use_parent_material = true
 color = Color(0.0837248, 0.492909, 0.454188, 1)
 polygon = PackedVector2Array(-106, -115, -110, 4, -103, 60, 111, -119)
 
-[node name="Echos" type="CanvasGroup" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="MultiMeshInstance2D"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MultiMeshInstance2D/StaticBody2D2"]
+polygon = PackedVector2Array(784, -473, 593, -685, 167, -747, -15, -641, -64, -369, 163, -257, 398, -147, 498, -105, 646, -147, 690, -166, 726, -422)
+
+[node name="Polygon2D" type="Polygon2D" parent="MultiMeshInstance2D/StaticBody2D2/CollisionPolygon2D"]
+texture_repeat = 3
+texture = ExtResource("3_agtrp")
+polygon = PackedVector2Array(784, -473, 593, -685, 167, -747, -15, -641, -64, -369, 163, -257, 398, -147, 498, -105, 646, -147, 690, -166, 726, -422)
