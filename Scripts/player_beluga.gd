@@ -57,18 +57,19 @@ func _physics_process(delta: float) -> void:
 		
 		if player_vision != Vector2(0,0):
 			#print(Vector2.from_angle( (player_vision.angle() + velocity.angle())/2 ))
-			lazor_rotate(lazor, player_vision )
+			lazor_rotate(lazor, player_vision)
 		else:
 			lazor_rotate(lazor, velocity)
 		#lazor.target_position = lazor.target_position.rotated(1 * (PI / 180))
-		#elif lazor.target_position.angle() != velocity.angle():
-		#	lazor.target_position = ECHO_DISTANCE * Vector2.from_angle(velocity.angle())
-			#print(Vector2.from_angle(velocity.angle()))
-			
-			#print("X: ", directionx)
-			#print("Y: ", directiony)
 
-## x+ right; x- left; y+ down; y- up;
+
+#### x+ right; x- left; y+ down; y- up;
 func lazor_rotate(mylazor: RayCast2D, myfocaldirection: Vector2) -> void:
+	
 	if mylazor.target_position.angle() != myfocaldirection.angle():
-		mylazor.target_position = ECHO_DISTANCE * Vector2.from_angle(myfocaldirection.angle())
+		#mylazor.target_position = ECHO_DISTANCE * Vector2.from_angle(myfocaldirection.angle())
+		mylazor.target_position = ECHO_DISTANCE * Vector2.from_angle(
+				Vector2.from_angle(mylazor.target_position.angle()).move_toward(
+					myfocaldirection, 0.05
+				).angle()
+			)
