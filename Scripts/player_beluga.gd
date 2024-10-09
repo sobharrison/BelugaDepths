@@ -35,6 +35,8 @@ func _physics_process(delta: float) -> void:
 		pass
 		#velocity.y = move_toward(velocity.y, 0, 0.5*SPEED)
 
+	var player_vision: Vector2 = Vector2(directionx, directiony)
+
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
 		print_rich("[color=RED][pulse freq=2.5]Collision!!![/pulse][/color]", collision_info,
@@ -52,6 +54,21 @@ func _physics_process(delta: float) -> void:
 		#var newLazor: Vector2 = Vector2(1, 13)
 		#print_rich("[color=Cyan][pulse freq=2.5]Firin My Lazor[/pulse][/color]", lazor.target_position, "[color=Cyan][pulse freq=2.5]; [/pulse][/color]", lazor.target_position.angle())
 		
+		
+		if player_vision != Vector2(0,0):
+			#print(Vector2.from_angle( (player_vision.angle() + velocity.angle())/2 ))
+			lazor_rotate(lazor, player_vision )
+		else:
+			lazor_rotate(lazor, velocity)
 		#lazor.target_position = lazor.target_position.rotated(1 * (PI / 180))
-		if lazor.target_position.angle() != velocity.angle():
-			lazor.target_position = ECHO_DISTANCE * Vector2.from_angle(velocity.angle())
+		#elif lazor.target_position.angle() != velocity.angle():
+		#	lazor.target_position = ECHO_DISTANCE * Vector2.from_angle(velocity.angle())
+			#print(Vector2.from_angle(velocity.angle()))
+			
+			#print("X: ", directionx)
+			#print("Y: ", directiony)
+
+## x+ right; x- left; y+ down; y- up;
+func lazor_rotate(mylazor: RayCast2D, myfocaldirection: Vector2) -> void:
+	if mylazor.target_position.angle() != myfocaldirection.angle():
+		mylazor.target_position = ECHO_DISTANCE * Vector2.from_angle(myfocaldirection.angle())
