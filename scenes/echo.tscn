@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d01f4pv2e5vpr"]
 
-[ext_resource type="Script" path="res://scenes/echo.gd" id="1_cd4wc"]
+[ext_resource type="Script" path="res://Scripts/echo.gd" id="1_cd4wc"]
 [ext_resource type="Texture2D" uid="uid://csqsqfgan0l3o" path="res://belugaDepths_icon_oct_2_2024.png" id="2_aip8h"]
 [ext_resource type="Shader" path="res://Shaders/test_shader.gdshader" id="2_bg7va"]
 

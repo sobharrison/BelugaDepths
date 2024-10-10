@@ -5,6 +5,11 @@ extends RayCast2D
 var echo_scene = load("res://scenes/echo.tscn")
 var echo_positions = []
 
+class echo_ping:
+	var timer: int
+	var position: Vector2
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,18 +18,30 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#print_rich("[color=RED][pulse freq=2.5]HIT! [/pulse][/color]", self.get_collision_point())
+	#print_rich(self.get_parent(), "[color=GREEN];[/color]", self.get_parent().get_parent(), "[color=GREEN];[/color]", self.get_parent().get_parent().get_parent())
+
 	if self.is_colliding():
-		#print_rich("[color=RED][pulse freq=2.5]HIT! [/pulse][/color]", self.get_collision_point())
-		#print_rich(self.get_parent(), "[color=GREEN];[/color]", self.get_parent().get_parent(), "[color=GREEN];[/color]", self.get_parent().get_parent().get_parent())
 		
+		# Remove old echo pings
+		for i in range(echo_positions.size()):
+			if echo_positions[i].timer < Time.get_ticks_msec():
+				echo_positions.remove_at(i)
+				multimesh.multimesh.instance_count = multimesh.multimesh.instance_count - 1
+				break
+		
+		# add new echo pings
 		var echo_position = self.get_collision_point()
 		
 		if echo_position:
-			echo_positions.append(echo_position)
+			var echoo = echo_ping.new()
+			echoo.position = echo_position
+			echoo.timer = Time.get_ticks_msec() + 1000 * 10
+	
+			echo_positions.append(echoo)
 			multimesh.multimesh.instance_count += 1
 			for i in range(multimesh.multimesh.instance_count):
-				multimesh.multimesh.set_instance_transform_2d(i, Transform2D().translated(echo_positions[i]))
-		
+				multimesh.multimesh.set_instance_transform_2d(i, Transform2D().translated(echo_positions[i].position))
 		
 		#if self.get_parent().get_parent().find_child("Echos"):
 		#	var echos = self.get_parent().get_parent().find_child("Echos")
