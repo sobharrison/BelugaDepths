@@ -7,8 +7,18 @@ const ECHO_DISTANCE = 500.0
 
 @export var multimesh: MultiMeshInstance2D
 
+var my_path: Array = []
+const FOLLOW_PATH: int = 20
+var my_head
+var my_torso
+var my_tail
+
 func _ready():
 	multimesh.clip_children = CanvasItem.CLIP_CHILDREN_ONLY
+	
+	my_head = self.find_child("Head")
+	my_torso = self.find_child("Torso")
+	my_tail = self.find_child("Tail")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -49,8 +59,8 @@ func _physics_process(delta: float) -> void:
 	#print_rich("[rainbow freq=1.0 sat=0.8 val=0.8]x[/rainbow]", velocity.x, "[rainbow freq=1.0 sat=0.8 val=0.8]y[/rainbow]", velocity.y)
 
 	var lazor: RayCast2D
-	if self.get_child(-1).get_class() == "RayCast2D":
-		lazor = self.get_child(-1)
+	if self.find_child("RayVision").get_class() == "RayCast2D":
+		lazor = self.find_child("RayVision")
 		#var newLazor: Vector2 = Vector2(1, 13)
 		#print_rich("[color=Cyan][pulse freq=2.5]Firin My Lazor[/pulse][/color]", lazor.target_position, "[color=Cyan][pulse freq=2.5]; [/pulse][/color]", lazor.target_position.angle())
 		
@@ -61,6 +71,25 @@ func _physics_process(delta: float) -> void:
 		else:
 			lazor_rotate(lazor, velocity)
 		#lazor.target_position = lazor.target_position.rotated(1 * (PI / 180))
+	
+	var my_position = self.global_position
+	if my_path.size() > 2:
+		var distance = my_position.distance_to(my_path[-1])
+
+	my_path.append(my_position)
+	if my_path.size() > 100:
+		my_path.remove_at(0)
+	
+	var follow_dist = FOLLOW_PATH
+	var follow_dist2 = FOLLOW_PATH*2
+	var follow_size: int = my_path.size()
+	if follow_size > FOLLOW_PATH*2 + 10:
+		my_torso.global_position.x = my_path[follow_size - follow_dist].x
+		my_torso.global_position.y = my_path[follow_size - follow_dist].y
+		my_tail.global_position.x = my_path[follow_size - follow_dist2].x
+		my_tail.global_position.y = my_path[follow_size - follow_dist2].y
+
+
 
 
 #### x+ right; x- left; y+ down; y- up;

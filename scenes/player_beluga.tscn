@@ -8,15 +8,28 @@
 collision_mask = 14
 script = ExtResource("1_l2xnq")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-texture = ExtResource("1_0l5h8")
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+[node name="Head" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-58, -59, -64, -35, -64, 37, -49, 61, 53, 63, 62, 53, 64, -35, 33, -63, -48, -62)
 
-[node name="Camera2D2" type="Camera2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="Head"]
+texture = ExtResource("1_0l5h8")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="Torso" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(54, -57, -54, -41, -49, 36, 49, 59)
+
+[node name="Sprite2D" type="Sprite2D" parent="Torso"]
+texture = ExtResource("1_0l5h8")
+
+[node name="Tail" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(48, -41, -24, -25, -49, -46, -51, 39, -23, 23, 49, 48)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tail"]
+rotation = 2.75238
+texture = ExtResource("1_0l5h8")
+
+[node name="RayVision" type="RayCast2D" parent="."]
 target_position = Vector2(203, 0)
 collision_mask = 30
 script = ExtResource("3_itf7t")
+
+[node name="Camera2D2" type="Camera2D" parent="."]
