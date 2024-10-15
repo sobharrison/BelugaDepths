@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://2wyeaa7pm7ss"]
+[gd_scene load_steps=9 format=3 uid="uid://2wyeaa7pm7ss"]
 
 [ext_resource type="PackedScene" uid="uid://csh4sm1xfiohm" path="res://scenes/player_beluga.tscn" id="1_rbm3b"]
 [ext_resource type="Shader" path="res://Shaders/test_shader.gdshader" id="2_po726"]
+[ext_resource type="Texture2D" uid="uid://cqv0abd0bu44h" path="res://Sprites/white_ice_texture_10-14-2024.png" id="3_2cjsf"]
 [ext_resource type="Texture2D" uid="uid://csqsqfgan0l3o" path="res://belugaDepths_icon_oct_2_2024.png" id="3_agtrp"]
+[ext_resource type="Texture2D" uid="uid://qmokkvmki0yg" path="res://Sprites/dark_ice_10-14-2024.png" id="4_dhm5e"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ot0o6"]
 radius = 60.0
@@ -60,6 +62,22 @@ polygon = PackedVector2Array(441, -12, 589, -73, 707, -90, 743, -358, 944, -435,
 use_parent_material = true
 color = Color(0.0837248, 0.492909, 0.454188, 1)
 polygon = PackedVector2Array(-106, -115, -110, 4, -103, 60, 111, -119)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="MultiMeshInstance2D/StaticBody2D"]
+polygon = PackedVector2Array(122, 909, 210, 943, 347, 1024, 525, 1080, 659, 1042, 785, 970, 965, 957, 1140, 959, 1286, 1019, 1261, 1179, 1059, 1332, 801, 1210, 615, 1201, 493, 1271, 199, 1352, -50, 1291, -117, 1118, -72, 966, 56, 921)
+
+[node name="Polygon2D" type="Polygon2D" parent="MultiMeshInstance2D/StaticBody2D/CollisionPolygon2D4"]
+texture_repeat = 3
+texture = ExtResource("3_2cjsf")
+polygon = PackedVector2Array(122, 909, 210, 943, 347, 1024, 525, 1080, 659, 1042, 785, 970, 965, 957, 1140, 959, 1286, 1019, 1261, 1179, 1059, 1332, 801, 1210, 615, 1201, 493, 1271, 199, 1352, -50, 1291, -117, 1118, -72, 966, 56, 921)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="MultiMeshInstance2D/StaticBody2D"]
+polygon = PackedVector2Array(1241, 1116, 1324, 1231, 1382, 1314, 1313, 1486, 1263, 1626, 1070, 1774, 848, 1834, 691, 1803, 482, 1814, 341, 1839, 217, 1828, 98, 1839, -21, 1823, -90, 1794, -158, 1713, -414, 1850, -167, 1646, -351, 1713, -162, 1558, -274, 1459, -283, 1412, -212, 1435, -135, 1484, -79, 1536, -23, 1626, 82, 1682, 228, 1693, 334, 1695, 511, 1697, 711, 1675, 835, 1657, 954, 1596, 983, 1518, 958, 1406, 913, 1372, 877, 1302, 931, 1222)
+
+[node name="Polygon2D" type="Polygon2D" parent="MultiMeshInstance2D/StaticBody2D/CollisionPolygon2D5"]
+texture_repeat = 3
+texture = ExtResource("4_dhm5e")
+polygon = PackedVector2Array(1241, 1116, 1324, 1231, 1382, 1314, 1313, 1486, 1263, 1626, 1070, 1774, 848, 1834, 691, 1803, 482, 1814, 341, 1839, 217, 1828, 98, 1839, -21, 1823, -90, 1794, -158, 1713, -414, 1850, -167, 1646, -351, 1713, -162, 1558, -274, 1459, -283, 1412, -212, 1435, -135, 1484, -79, 1536, -23, 1626, 82, 1682, 228, 1693, 334, 1695, 511, 1697, 711, 1675, 835, 1657, 954, 1596, 983, 1518, 958, 1406, 913, 1372, 877, 1302, 931, 1222)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="MultiMeshInstance2D"]
 collision_layer = 16

@@ -1,31 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://csh4sm1xfiohm"]
+[gd_scene load_steps=6 format=3 uid="uid://csh4sm1xfiohm"]
 
-[ext_resource type="Texture2D" uid="uid://csqsqfgan0l3o" path="res://belugaDepths_icon_oct_2_2024.png" id="1_0l5h8"]
 [ext_resource type="Script" path="res://Scripts/player_beluga.gd" id="1_l2xnq"]
+[ext_resource type="Texture2D" uid="uid://dqavvkcidwo03" path="res://Sprites/Beluga/belugaPlayer_10-14-2024_head.png" id="2_ctx8n"]
 [ext_resource type="Script" path="res://Scripts/echo_location.gd" id="3_itf7t"]
+[ext_resource type="Texture2D" uid="uid://cukx2kxl7chrn" path="res://Sprites/Beluga/belugaPlayer_10-14-2024_torso.png" id="3_kn2d6"]
+[ext_resource type="Texture2D" uid="uid://ktipkhtnr3wu" path="res://Sprites/Beluga/belugaPlayer_10-14-2024_tail.png" id="4_dikfk"]
 
 [node name="Beluga2D" type="CharacterBody2D"]
 collision_mask = 14
 script = ExtResource("1_l2xnq")
 
 [node name="Head" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-58, -59, -64, -35, -64, 37, -49, 61, 53, 63, 62, 53, 64, -35, 33, -63, -48, -62)
+polygon = PackedVector2Array(-35, -30, -31, 23, 28, 12, 36, -3, 27, -32, -10, -34)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Head"]
-texture = ExtResource("1_0l5h8")
+texture = ExtResource("2_ctx8n")
 
 [node name="Torso" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(54, -57, -54, -41, -49, 36, 49, 59)
+polygon = PackedVector2Array(33, -34, -33, -25, -32, 28, 32, 30)
 
 [node name="Sprite2D" type="Sprite2D" parent="Torso"]
-texture = ExtResource("1_0l5h8")
+texture = ExtResource("3_kn2d6")
 
 [node name="Tail" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(48, -41, -24, -25, -49, -46, -51, 39, -23, 23, 49, 48)
+polygon = PackedVector2Array(34, -24, -2, -23, -33, -22, -30, 23, 0, 20, 32, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="Tail"]
-rotation = 2.75238
-texture = ExtResource("1_0l5h8")
+texture = ExtResource("4_dikfk")
 
 [node name="RayVision" type="RayCast2D" parent="."]
 target_position = Vector2(203, 0)
