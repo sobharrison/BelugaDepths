@@ -16,21 +16,24 @@ polygon = PackedVector2Array(-35, -30, -31, 23, 28, 12, 36, -3, 27, -32, -10, -3
 [node name="Sprite2D2" type="Sprite2D" parent="Head"]
 texture = ExtResource("2_ctx8n")
 
-[node name="Torso" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(33, -34, -33, -25, -32, 28, 32, 30)
-
-[node name="Sprite2D" type="Sprite2D" parent="Torso"]
-texture = ExtResource("3_kn2d6")
-
-[node name="Tail" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(34, -24, -2, -23, -33, -22, -30, 23, 0, 20, 32, 20)
-
-[node name="Sprite2D" type="Sprite2D" parent="Tail"]
-texture = ExtResource("4_dikfk")
-
 [node name="RayVision" type="RayCast2D" parent="."]
 target_position = Vector2(203, 0)
 collision_mask = 30
 script = ExtResource("3_itf7t")
 
 [node name="Camera2D2" type="Camera2D" parent="."]
+
+[node name="LowerBody" type="CharacterBody2D" parent="."]
+collision_mask = 12
+
+[node name="Tail" type="CollisionPolygon2D" parent="LowerBody"]
+polygon = PackedVector2Array(34, -24, -2, -23, -33, -22, -30, 23, 0, 20, 32, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="LowerBody/Tail"]
+texture = ExtResource("4_dikfk")
+
+[node name="Torso" type="CollisionPolygon2D" parent="LowerBody"]
+polygon = PackedVector2Array(33, -34, -33, -25, -32, 28, 32, 30)
+
+[node name="Sprite2D" type="Sprite2D" parent="LowerBody/Torso"]
+texture = ExtResource("3_kn2d6")

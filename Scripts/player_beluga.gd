@@ -1,7 +1,16 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY: float = -400.0
+const SPEED: float = 300.0
+const FRICTION: float = 50.0
+const VELOCITY_MAX: float = 1000.0
+const BOOST_MULTIPLIER_S: float = 1.30
+const BOOST_MULTIPLIER_M: float = 1.75
+const BOOST_TIME_MIN: int = 500
+const BOOST_TIME_IDEAL: int = 700
+const BOOST_TIME_MAX: int = 1000
+var last_boost: int
+var last_boost_type = ''
+const LAST_BOOST: int = 400
 
 const ECHO_DISTANCE = 500.0
 
@@ -17,8 +26,8 @@ func _ready():
 	multimesh.clip_children = CanvasItem.CLIP_CHILDREN_ONLY
 	
 	my_head = self.find_child("Head")
-	my_torso = self.find_child("Torso")
-	my_tail = self.find_child("Tail")
+	my_torso = self.find_child("LowerBody").find_child("Torso")
+	my_tail = self.find_child("LowerBody").find_child("Tail")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -31,22 +40,51 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
+	
+	# Basic movement
 	var directionx := Input.get_axis("ui_left", "ui_right")
 	if directionx:
 		velocity.x += directionx * SPEED * delta
 	else:
-		pass
-		#velocity.x = move_toward(velocity.x, 0, 0.5*SPEED)
+		velocity.x = sign(velocity.x) * ( abs(velocity.x) - FRICTION * delta)
 	
 	var directiony := Input.get_axis("ui_up", "ui_down")
 	if directiony:
 		velocity.y += directiony * SPEED * delta
 	else:
-		pass
-		#velocity.y = move_toward(velocity.y, 0, 0.5*SPEED)
+		velocity.y = sign(velocity.y) * ( abs(velocity.y) - FRICTION * delta)
 
+	# Setup for vision/echolocation
 	var player_vision: Vector2 = Vector2(directionx, directiony)
 
+	# Booster
+	var booster := Input.is_action_just_pressed("ui_accept")
+	var current_time = Time.get_ticks_msec()
+	if booster:
+		if last_boost+BOOST_TIME_IDEAL < current_time && current_time < last_boost+BOOST_TIME_MAX:
+			print_rich("[color=GREEN][pulse freq=5]MEGA BOOST[/pulse][/color]")
+			velocity.x *= BOOST_MULTIPLIER_M
+			velocity.y *= BOOST_MULTIPLIER_M
+			last_boost_type = 'M'
+		elif last_boost+BOOST_TIME_MIN < current_time:
+			print_rich("[color=BLUE][pulse freq=5]small boost[/pulse][/color]")
+			velocity.x *= BOOST_MULTIPLIER_S
+			velocity.y *= BOOST_MULTIPLIER_S
+			last_boost_type = 'S'
+		last_boost = Time.get_ticks_msec()
+	else:
+		if current_time > last_boost+LAST_BOOST:
+			if last_boost_type == 'M':
+				velocity.x /= BOOST_MULTIPLIER_M
+				velocity.y /= BOOST_MULTIPLIER_M
+				last_boost_type = ''
+			elif last_boost_type == 'S':
+				velocity.x /= BOOST_MULTIPLIER_S
+				velocity.y /= BOOST_MULTIPLIER_S
+				last_boost_type = ''
+
+
+	# Collsions
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
 		print_rich("[color=RED][pulse freq=2.5]Collision!!![/pulse][/color]", collision_info,
@@ -58,6 +96,10 @@ func _physics_process(delta: float) -> void:
 
 	#print_rich("[rainbow freq=1.0 sat=0.8 val=0.8]x[/rainbow]", velocity.x, "[rainbow freq=1.0 sat=0.8 val=0.8]y[/rainbow]", velocity.y)
 
+	# Max Velocity
+	velocity = velocity.limit_length(VELOCITY_MAX)
+	
+	# Echolocation
 	var lazor: RayCast2D
 	if self.find_child("RayVision").get_class() == "RayCast2D":
 		lazor = self.find_child("RayVision")
