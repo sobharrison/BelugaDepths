@@ -124,6 +124,7 @@ func _physics_process(delta: float) -> void:
 			lazor_rotate(lazor, velocity)
 		#lazor.target_position = lazor.target_position.rotated(1 * (PI / 180))
 	
+	# Tail follower
 	var my_position = self.global_position
 	if my_path.size() > 2:
 		var distance = my_position.distance_to(my_path[-1])

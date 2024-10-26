@@ -23,6 +23,13 @@ func _process(delta: float) -> void:
 
 	if self.is_colliding():
 		
+		# make predators and prey revealed
+		var collide = self.get_collider()
+		print(collide.get_name())
+		if collide.get_name() == "Prey2D" or collide.get_name() == "Predator2D":
+			collide.visible = true
+			collide.timer = Time.get_ticks_msec() + 2000
+		
 		# Remove old echo pings
 		for i in range(echo_positions.size()):
 			if echo_positions[i].timer < Time.get_ticks_msec():

@@ -4,9 +4,13 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+var timer: int = 0
+
+func _ready():
+	self.visible = false
 
 func _physics_process(delta: float) -> void:
-	pass
+	hide_me()
 	# Add the gravity.
 	#if not is_on_floor():
 	#	velocity += get_gravity() * delta
@@ -24,3 +28,9 @@ func _physics_process(delta: float) -> void:
 	#	velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	#move_and_slide()
+
+func hide_me() -> void:
+	var current = Time.get_ticks_msec()
+	if timer < current:
+		self.visible = false
+	
