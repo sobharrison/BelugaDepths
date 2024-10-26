@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcvtqqr4c5d1d"]
+
+[ext_resource type="Texture2D" uid="uid://csqsqfgan0l3o" path="res://belugaDepths_icon_oct_2_2024.png" id="1_06ffs"]
+[ext_resource type="Script" path="res://Scripts/prey.gd" id="1_nftvc"]
+
+[node name="Prey2D" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_nftvc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -11, -9, -5, -9, 5, 1, 9, 9, 4, 9, -5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_06ffs")

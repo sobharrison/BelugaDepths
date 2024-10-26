@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://2wyeaa7pm7ss"]
+[gd_scene load_steps=11 format=3 uid="uid://2wyeaa7pm7ss"]
 
 [ext_resource type="PackedScene" uid="uid://csh4sm1xfiohm" path="res://scenes/player_beluga.tscn" id="1_rbm3b"]
 [ext_resource type="Shader" path="res://Shaders/test_shader.gdshader" id="2_po726"]
 [ext_resource type="Texture2D" uid="uid://cqv0abd0bu44h" path="res://Sprites/white_ice_texture_10-14-2024.png" id="3_2cjsf"]
 [ext_resource type="Texture2D" uid="uid://csqsqfgan0l3o" path="res://belugaDepths_icon_oct_2_2024.png" id="3_agtrp"]
 [ext_resource type="Texture2D" uid="uid://qmokkvmki0yg" path="res://Sprites/dark_ice_10-14-2024.png" id="4_dhm5e"]
+[ext_resource type="PackedScene" uid="uid://c6o5gc5lf3v80" path="res://scenes/predator.tscn" id="6_c2ve6"]
+[ext_resource type="PackedScene" uid="uid://dcvtqqr4c5d1d" path="res://scenes/prey.tscn" id="7_yj0v1"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ot0o6"]
 radius = 60.0
@@ -90,3 +92,11 @@ polygon = PackedVector2Array(784, -473, 593, -685, 167, -747, -15, -641, -64, -3
 texture_repeat = 3
 texture = ExtResource("3_agtrp")
 polygon = PackedVector2Array(784, -473, 593, -685, 167, -747, -15, -641, -64, -369, 163, -257, 398, -147, 498, -105, 646, -147, 690, -166, 726, -422)
+
+[node name="Creatures" type="Node2D" parent="."]
+
+[node name="Predator2D" parent="Creatures" instance=ExtResource("6_c2ve6")]
+position = Vector2(901, 526)
+
+[node name="Prey2D" parent="Creatures" instance=ExtResource("7_yj0v1")]
+position = Vector2(1014, -153)

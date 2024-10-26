@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6o5gc5lf3v80"]
+
+[ext_resource type="Texture2D" uid="uid://csqsqfgan0l3o" path="res://belugaDepths_icon_oct_2_2024.png" id="1_2mp0x"]
+[ext_resource type="Script" path="res://Scripts/predator.gd" id="1_oo4dl"]
+
+[node name="Predator2D" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_oo4dl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-1, -52, -125, -47, -151, -30, -187, 28, -126, 48, -59, 58, 85, 55, 164, 52, 185, 21, 178, -14, 149, -41, 48, -50)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 1)
+texture = ExtResource("1_2mp0x")
