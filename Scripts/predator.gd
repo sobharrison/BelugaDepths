@@ -28,6 +28,13 @@ func _physics_process(delta: float) -> void:
 	#	velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	#move_and_slide()
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info:
+		velocity = velocity.bounce(collision_info.get_normal())
+		
+		# eat the prey
+		if collision_info.get_collider().get_collision_layer() == 4:
+			collision_info.get_collider.eat_me()
 
 func hide_me() -> void:
 	var current = Time.get_ticks_msec()
