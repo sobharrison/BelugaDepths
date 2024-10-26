@@ -28,9 +28,15 @@ func _physics_process(delta: float) -> void:
 	#	velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	#move_and_slide()
+	
+	var collision_info = move_and_collide(velocity * delta)
+	
 
 func hide_me() -> void:
 	var current = Time.get_ticks_msec()
 	if timer < current:
 		self.visible = false
 	
+
+func eat_me() -> void:
+	self.queue_free()

@@ -101,8 +101,18 @@ func _physics_process(delta: float) -> void:
 			"  [color=RED][pulse freq=2.5]ID:[/pulse][/color]", collision_info.get_collider(),
 			"  [color=RED][pulse freq=2.5]Layer:[/pulse][/color]",collision_info.get_collider().get_collision_layer()
 		)
+		
+		if collision_info.get_collider().get_collision_layer() == 4:
+			# Prey
+			collision_info.get_collider().eat_me()
+			
+		elif collision_info.get_collider().get_collision_layer() == 8:
+			# Predator
+			bitten()
+			velocity = velocity.bounce(collision_info.get_normal())
 
-		velocity = velocity.bounce(collision_info.get_normal())
+		else:
+			velocity = velocity.bounce(collision_info.get_normal())
 
 	#print_rich("[rainbow freq=1.0 sat=0.8 val=0.8]x[/rainbow]", velocity.x, "[rainbow freq=1.0 sat=0.8 val=0.8]y[/rainbow]", velocity.y)
 
@@ -155,3 +165,6 @@ func lazor_rotate(mylazor: RayCast2D, myfocaldirection: Vector2) -> void:
 					myfocaldirection, 0.05
 				).angle()
 			)
+
+func bitten() -> void:
+	print_rich("[color=MAGENTA][pulse freq=1]Ouch!!![/pulse][/color]")
