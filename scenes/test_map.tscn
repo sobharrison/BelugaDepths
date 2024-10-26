@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://2wyeaa7pm7ss"]
+[gd_scene load_steps=13 format=3 uid="uid://2wyeaa7pm7ss"]
 
 [ext_resource type="PackedScene" uid="uid://csh4sm1xfiohm" path="res://scenes/player_beluga.tscn" id="1_rbm3b"]
 [ext_resource type="Shader" path="res://Shaders/test_shader.gdshader" id="2_po726"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c6o5gc5lf3v80" path="res://scenes/predator.tscn" id="6_c2ve6"]
 [ext_resource type="PackedScene" uid="uid://dcvtqqr4c5d1d" path="res://scenes/prey.tscn" id="7_yj0v1"]
 [ext_resource type="PackedScene" uid="uid://0cwu54l164wt" path="res://scenes/PreySpawner.tscn" id="8_yjrbs"]
+[ext_resource type="PackedScene" uid="uid://crieklro3l5op" path="res://scenes/PredatorSpawner.tscn" id="9_uwb8k"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ot0o6"]
 radius = 60.0
@@ -104,3 +105,11 @@ position = Vector2(1014, -153)
 
 [node name="PreySpawner" parent="Creatures" instance=ExtResource("8_yjrbs")]
 position = Vector2(1039, -229)
+
+[node name="PredatorSpawner" parent="Creatures" instance=ExtResource("9_uwb8k")]
+position = Vector2(1761, 502)
+plan_direction = Vector2(-1, 0)
+
+[node name="PredatorSpawner2" parent="Creatures" instance=ExtResource("9_uwb8k")]
+position = Vector2(1564, -570)
+plan_direction = Vector2(-1, 1)

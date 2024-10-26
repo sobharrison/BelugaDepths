@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crieklro3l5op"]
+
+[ext_resource type="Script" path="res://Scripts/predator_spawner.gd" id="1_qgsap"]
+
+[node name="PredatorSpawner" type="Node2D"]
+script = ExtResource("1_qgsap")

@@ -1,16 +1,21 @@
 extends CharacterBody2D
 
+var plan_direction: Vector2 = Vector2(0, 0)
 
-const SPEED = 300.0
+const SPEED = 50.0
 const JUMP_VELOCITY = -400.0
+const despawn: int = 20000
+var spawn_time: int
 
 var timer: int = 0
 
 func _ready():
 	self.visible = false
+	spawn_time = Time.get_ticks_msec()
 
 func _physics_process(delta: float) -> void:
 	hide_me()
+	despawn_me()
 	# Add the gravity.
 	#if not is_on_floor():
 	#	velocity += get_gravity() * delta
@@ -26,6 +31,8 @@ func _physics_process(delta: float) -> void:
 	#	velocity.x = direction * SPEED
 	#else:
 	#	velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	velocity = plan_direction * SPEED
 
 	#move_and_slide()
 	var collision_info = move_and_collide(velocity * delta)
@@ -44,3 +51,7 @@ func hide_me() -> void:
 func found_me() -> void:
 	self.visible = true
 	self.timer = Time.get_ticks_msec() + 5000
+
+func despawn_me() -> void:
+	if spawn_time + despawn < Time.get_ticks_msec():
+		self.queue_free()
