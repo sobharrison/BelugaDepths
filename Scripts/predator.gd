@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var plan_direction: Vector2 = Vector2(0, 0)
 
-const SPEED = 50.0
+const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
 const despawn: int = 20000
 var spawn_time: int
@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		
 		# eat the prey
 		if collision_info.get_collider().get_collision_layer() == 4:
-			collision_info.get_collider.eat_me()
+			collision_info.get_collider().eat_me()
 
 func hide_me() -> void:
 	var current = Time.get_ticks_msec()

@@ -22,12 +22,22 @@ var my_head
 var my_torso
 var my_tail
 
+var my_life3
+var my_life2
+var my_life1
+
+var my_health: int = 3 
+
 func _ready():
 	multimesh.clip_children = CanvasItem.CLIP_CHILDREN_ONLY
 	
 	my_head = self.find_child("Head")
 	my_torso = self.find_child("LowerBody").find_child("Torso")
 	my_tail = self.find_child("LowerBody").find_child("Tail")
+	
+	my_life1 = self.find_child("Health").find_child("Life1")
+	my_life2 = self.find_child("Health").find_child("Life2")
+	my_life3 = self.find_child("Health").find_child("Life3")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -168,3 +178,17 @@ func lazor_rotate(mylazor: RayCast2D, myfocaldirection: Vector2) -> void:
 
 func bitten() -> void:
 	print_rich("[color=MAGENTA][pulse freq=1]Ouch!!![/pulse][/color]")
+	my_health -= 1
+	if my_health == 3:
+		pass
+	elif my_health == 2:
+		my_life3.visible = false
+	elif my_health == 1:
+		my_life3.visible = false
+		my_life2.visible = false
+	elif my_health == 0:
+		my_life3.visible = false
+		my_life2.visible = false
+		my_life1.visible = false
+	elif my_health < 0:
+		pass

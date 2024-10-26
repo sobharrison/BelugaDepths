@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://csh4sm1xfiohm"]
+[gd_scene load_steps=7 format=3 uid="uid://csh4sm1xfiohm"]
 
 [ext_resource type="Script" path="res://Scripts/player_beluga.gd" id="1_l2xnq"]
 [ext_resource type="Texture2D" uid="uid://dqavvkcidwo03" path="res://Sprites/Beluga/belugaPlayer_10-14-2024_head.png" id="2_ctx8n"]
 [ext_resource type="Script" path="res://Scripts/echo_location.gd" id="3_itf7t"]
 [ext_resource type="Texture2D" uid="uid://cukx2kxl7chrn" path="res://Sprites/Beluga/belugaPlayer_10-14-2024_torso.png" id="3_kn2d6"]
 [ext_resource type="Texture2D" uid="uid://ktipkhtnr3wu" path="res://Sprites/Beluga/belugaPlayer_10-14-2024_tail.png" id="4_dikfk"]
+[ext_resource type="Texture2D" uid="uid://csqsqfgan0l3o" path="res://belugaDepths_icon_oct_2_2024.png" id="6_045ji"]
 
 [node name="Beluga2D" type="CharacterBody2D"]
 collision_mask = 14
@@ -37,3 +38,21 @@ polygon = PackedVector2Array(33, -34, -33, -25, -32, 28, 32, 30)
 
 [node name="Sprite2D" type="Sprite2D" parent="LowerBody/Torso"]
 texture = ExtResource("3_kn2d6")
+
+[node name="Health" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Life3" type="Sprite2D" parent="Health"]
+position = Vector2(-436, -301)
+texture = ExtResource("6_045ji")
+
+[node name="Life2" type="Sprite2D" parent="Health"]
+position = Vector2(-499, -304)
+texture = ExtResource("6_045ji")
+
+[node name="Life1" type="Sprite2D" parent="Health"]
+position = Vector2(-549, -304)
+texture = ExtResource("6_045ji")
