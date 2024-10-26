@@ -34,3 +34,6 @@ func hide_me() -> void:
 	if timer < current:
 		self.visible = false
 	
+func found_me() -> void:
+	self.visible = true
+	self.timer = Time.get_ticks_msec() + 5000

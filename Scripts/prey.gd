@@ -13,7 +13,6 @@ func _ready():
 	self.visible = false
 	rng = RandomNumberGenerator.new()
 	beluga = self.get_parent().get_parent().find_child("Beluga2D")
-	print(beluga)
 	sprite = self.find_child("Sprite2D")
 
 func _physics_process(delta: float) -> void:
@@ -68,7 +67,10 @@ func hide_me() -> void:
 	var current = Time.get_ticks_msec()
 	if timer < current:
 		self.visible = false
-	
+
+func found_me() -> void:
+	self.visible = true
+	self.timer = Time.get_ticks_msec() + 2000
 
 func eat_me() -> void:
 	self.queue_free()
