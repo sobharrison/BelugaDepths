@@ -56,6 +56,16 @@ func _physics_process(delta: float) -> void:
 
 	# Setup for vision/echolocation
 	var player_vision: Vector2 = Vector2(directionx, directiony)
+	
+	# flip sprite
+	if velocity.x > 0:
+		my_head.get_child(0).flip_h = false
+		my_torso.get_child(0).flip_h = false
+		my_tail.get_child(0).flip_h = false
+	else:
+		my_head.get_child(0).flip_h = true
+		my_torso.get_child(0).flip_h = true
+		my_tail.get_child(0).flip_h = true
 
 	# Booster
 	var booster := Input.is_action_just_pressed("ui_accept")
