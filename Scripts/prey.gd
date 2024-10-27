@@ -9,7 +9,11 @@ var rng
 var beluga
 var sprite
 
+const despawn: int = 15000
+var spawn_time: int
+
 func _ready():
+	spawn_time = Time.get_ticks_msec()
 	self.visible = false
 	rng = RandomNumberGenerator.new()
 	beluga = self.get_parent().get_parent().find_child("Beluga2D")
@@ -17,6 +21,7 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	hide_me()
+	despawn_me()
 	
 	if self.visible:
 		# run from player
@@ -57,3 +62,7 @@ func found_me() -> void:
 
 func eat_me() -> void:
 	self.queue_free()
+
+func despawn_me() -> void:
+	if spawn_time + despawn < Time.get_ticks_msec():
+		self.queue_free()
