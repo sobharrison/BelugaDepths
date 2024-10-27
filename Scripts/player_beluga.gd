@@ -12,7 +12,7 @@ var last_boost: int
 var last_boost_type = ''
 const LAST_BOOST: int = 400
 
-const ECHO_DISTANCE = 500.0
+const ECHO_DISTANCE = 700.0
 
 @export var multimesh: MultiMeshInstance2D
 
