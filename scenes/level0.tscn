@@ -117,6 +117,42 @@ texture_repeat = 2
 texture = ExtResource("3_2w4t4")
 polygon = PackedVector2Array(-1903, 2134, -1620, 2044, -1584, 2078, -1568, 2190, -1496, 2250, -1416, 2294, -1396, 2370, -1416, 2450, -1364, 2514, -1348, 2542, -1328, 2634, -1292, 2778, -1104, 2910, -1000, 3002, -1024, 3242, -828, 3306, -436, 3382, -296, 3378, -188, 3206, 400, 3254, 580, 3318, 976, 3162, 1052, 2966, 1108, 2822, 1288, 2774, 1448, 2838, 1528, 2710, 1536, 2546, 1592, 2446, 1684, 2358, 1780, 2270, 1712, 2130, 1756, 2090, 1940, 1982, 2096, 1958, 2312, 1954, 2416, 2138, 2372, 2402, 2104, 2806, 2196, 3490, 1988, 3750, 224, 4206, -1344, 4210, -2120, 3674, -2044, 3074, -2036, 2922, -2020, 2806, -1972, 2666, -1924, 2526, -1888, 2430, -1884, 2310, -1892, 2182)
 
+[node name="StaticBody2D4" type="StaticBody2D" parent="MultiMeshInstance2D"]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MultiMeshInstance2D/StaticBody2D4"]
+polygon = PackedVector2Array(-2071, -1542, -2455, -1798, -2503, -1958, -2770, -2220, -3139, -2572, -3309, -2695, -3494, -2960, -3745, -3212, -4015, -3364, -4203, -3454, -4562, -3571, -4787, -3616, -5065, -3652, -5362, -3768, -5577, -3840, -5775, -3831, -5999, -3867, -6340, -3957, -6610, -3930, -6771, -3912, -6969, -3912, -7211, -3975, -7543, -3923, -7664, -3919, -7835, -3977, -7997, -4000, -8163, -3982, -8402, -3997, -8480, -4011, -8665, -4011, -8737, -4011, -8779, -4004, -8901, -3925, -8929, -3904, -9064, -3783, -9171, -3769, -9335, -3783, -9478, -3769, -9528, -3669, -9578, -3626, -9756, -3512, -9856, -3548, -10020, -3612, -10141, -3619, -10205, -3541, -10575, -3298, -10604, -3141, -10825, -3034, -10946, -3049, -11316, -2740, -11496, -2560, -11460, -2249, -11652, -1997, -11879, -1949, -12035, -1721, -12095, -1445, -11999, -1218, -12179, -1014, -12263, -906, -12275, -702, -12467, -535, -13282, -621, -13307, -1164, -13053, -1825, -12705, -2325, -12167, -2968, -11412, -3699, -9458, -4886, -5623, -5653, -3273, -5317, -2386, -3819, -1551, -1588)
+
+[node name="Polygon2D" type="Polygon2D" parent="MultiMeshInstance2D/StaticBody2D4/CollisionPolygon2D"]
+texture_repeat = 2
+texture = ExtResource("2_ht0mp")
+polygon = PackedVector2Array(-2071, -1542, -2455, -1798, -2503, -1958, -2770, -2220, -3139, -2572, -3309, -2695, -3494, -2960, -3745, -3212, -4015, -3364, -4203, -3454, -4562, -3571, -4787, -3616, -5065, -3652, -5362, -3768, -5577, -3840, -5775, -3831, -5999, -3867, -6340, -3957, -6610, -3930, -6771, -3912, -6969, -3912, -7211, -3975, -7543, -3923, -7664, -3919, -7835, -3977, -7997, -4000, -8163, -3982, -8402, -3997, -8480, -4011, -8665, -4011, -8737, -4011, -8779, -4004, -8901, -3925, -8929, -3904, -9064, -3783, -9171, -3769, -9335, -3783, -9478, -3769, -9528, -3669, -9578, -3626, -9756, -3512, -9856, -3548, -10020, -3612, -10141, -3619, -10205, -3541, -10575, -3298, -10604, -3141, -10825, -3034, -10946, -3049, -11316, -2740, -11496, -2560, -11460, -2249, -11652, -1997, -11879, -1949, -12035, -1721, -12095, -1445, -11999, -1218, -12179, -1014, -12263, -906, -12275, -702, -12467, -535, -13282, -621, -13307, -1164, -13053, -1825, -12705, -2325, -12167, -2968, -11412, -3699, -9458, -4886, -5623, -5653, -3273, -5317, -2386, -3819, -1551, -1588)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="MultiMeshInstance2D/StaticBody2D4"]
+polygon = PackedVector2Array(-12426, -672, -12392, -554, -12468, -486, -12443, -342, -12434, -130, -12553, 107, -12544, 480, -12544, 845, -12460, 980, -12460, 1184, -12273, 1362, -12248, 1531, -12188, 1591, -12104, 1718, -11943, 1853, -11807, 2099, -11604, 2235, -11536, 2472, -11663, 2837, -11587, 2981, -11434, 3099, -11290, 3396, -11061, 3650, -10705, 3777, -10586, 4074, -10434, 4176, -10307, 4303, -10171, 4430, -9942, 4566, -9391, 4820, -9180, 4888, -8874, 5057, -8527, 5142, -8035, 5379, -7493, 5583, -6866, 5625, -6281, 5608, -6154, 5523, -5849, 5303, -5603, 5032, -5349, 4871, -5154, 4532, -5009, 4278, -4976, 4116, -4933, 3871, -5018, 3710, -5043, 3447, -5026, 3252, -4993, 3091, -5009, 2938, -5018, 2718, -5035, 2506, -4950, 2337, -4925, 2193, -4764, 2023, -4594, 1887, -4467, 1938, -4543, 2176, -4509, 2362, -4298, 2464, -4170, 2608, -4052, 2896, -3908, 3642, -4382, 5634, -5264, 6778, -7917, 6659, -10781, 5896, -12273, 4066, -13477, 1820, -13316, -138, -13019, -927)
+
+[node name="Polygon2D" type="Polygon2D" parent="MultiMeshInstance2D/StaticBody2D4/CollisionPolygon2D2"]
+texture_repeat = 2
+texture = ExtResource("3_2w4t4")
+polygon = PackedVector2Array(-12426, -672, -12392, -554, -12468, -486, -12443, -342, -12434, -130, -12553, 107, -12544, 480, -12544, 845, -12460, 980, -12460, 1184, -12273, 1362, -12248, 1531, -12188, 1591, -12104, 1718, -11943, 1853, -11807, 2099, -11604, 2235, -11536, 2472, -11663, 2837, -11587, 2981, -11434, 3099, -11290, 3396, -11061, 3650, -10705, 3777, -10586, 4074, -10434, 4176, -10307, 4303, -10171, 4430, -9942, 4566, -9391, 4820, -9180, 4888, -8874, 5057, -8527, 5142, -8035, 5379, -7493, 5583, -6866, 5625, -6281, 5608, -6154, 5523, -5849, 5303, -5603, 5032, -5349, 4871, -5154, 4532, -5009, 4278, -4976, 4116, -4933, 3871, -5018, 3710, -5043, 3447, -5026, 3252, -4993, 3091, -5009, 2938, -5018, 2718, -5035, 2506, -4950, 2337, -4925, 2193, -4764, 2023, -4594, 1887, -4467, 1938, -4543, 2176, -4509, 2362, -4298, 2464, -4170, 2608, -4052, 2896, -3908, 3642, -4382, 5634, -5264, 6778, -7917, 6659, -10781, 5896, -12273, 4066, -13477, 1820, -13316, -138, -13019, -927)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="MultiMeshInstance2D/StaticBody2D4"]
+polygon = PackedVector2Array(-2606, -3358, -3266, -1847, -3749, -1098, -4803, 1188, -4778, -590, -3939, -1987, -3330, -4514, -4638, -4869, -5846, -2411, -6723.29, 1466.17, -6441, 3566, -6836.16, 1472.84, -6349, -3156, -6690, -4862, -8190, -4907, -8163, -3623, -7983, -1594, -7911, 481, -8576, 4128, -8594, 463, -8396, -1665, -9429, -4341, -10614, -3964, -9788, 579, -11162, -3740, -12267, -2545, -9925, 2413, -12590, -1423, -13937, -4961, -4328, -6353, -1742, -5760)
+
+[node name="Polygon2D" type="Polygon2D" parent="MultiMeshInstance2D/StaticBody2D4/CollisionPolygon2D3"]
+texture_repeat = 2
+texture = ExtResource("2_x3w06")
+polygon = PackedVector2Array(-2606, -3358, -3266, -1847, -3749, -1098, -4803, 1188, -4778, -590, -3939, -1987, -3330, -4514, -4638, -4869, -5846, -2411, -6723.29, 1466.17, -6441, 3566, -6836.16, 1472.84, -6349, -3156, -6690, -4862, -8190, -4907, -8163, -3623, -7983, -1594, -7911, 481, -8576, 4128, -8594, 463, -8396, -1665, -9429, -4341, -10614, -3964, -9788, 579, -11162, -3740, -12267, -2545, -9925, 2413, -12590, -1423, -13937, -4961, -4328, -6353, -1742, -5760)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="MultiMeshInstance2D/StaticBody2D4"]
+polygon = PackedVector2Array(-3870, 4040, -5376, 2043, -5461, -573, -4682, -2345, -5664, -637, -5739, 2257, -3998, 4831, -5088, 5130, -5590, 4158, -5195, 5728, -6166, 6358, -7159, 6347, -7031, 3998, -7394, 2214, -7095, -1673, -7629, 2503, -7373, 3667, -8056, 5514, -9381, 6678, -10235, 5279, -9306, 3368, -9103, 912, -9498, 3272, -10737, 4564, -10523, 2567, -11495, 4767, -10694, 6849, -6604, 7650, -3582, 5728)
+
+[node name="Polygon2D" type="Polygon2D" parent="MultiMeshInstance2D/StaticBody2D4/CollisionPolygon2D4"]
+texture_repeat = 2
+texture = ExtResource("2_x3w06")
+polygon = PackedVector2Array(-3870, 4040, -5376, 2043, -5461, -573, -4682, -2345, -5664, -637, -5739, 2257, -3998, 4831, -5088, 5130, -5590, 4158, -5195, 5728, -6166, 6358, -7159, 6347, -7031, 3998, -7394, 2214, -7095, -1673, -7629, 2503, -7373, 3667, -8056, 5514, -9381, 6678, -10235, 5279, -9306, 3368, -9103, 912, -9498, 3272, -10737, 4564, -10523, 2567, -11495, 4767, -10694, 6849, -6604, 7650, -3582, 5728)
+
 [node name="Creatures" type="Node2D" parent="."]
 z_index = 5
 
@@ -209,6 +245,104 @@ plan_direction = Vector2(0.3, 1)
 position = Vector2(-2364, 2804)
 plan_direction = Vector2(1, 0)
 spawn_freq = 5000
+
+[node name="PreySpawner13" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-5282, -323)
+
+[node name="PreySpawner14" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-6118, 161)
+
+[node name="PreySpawner15" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-7086, 645)
+
+[node name="PreySpawner16" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-7761, 1129)
+
+[node name="PreySpawner17" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-9243, 443)
+
+[node name="PreySpawner18" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-9868, 1068)
+
+[node name="PreySpawner19" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-10624, 2036)
+
+[node name="PreySpawner20" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-11581, 1240)
+
+[node name="PreySpawner21" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-12025, 494)
+
+[node name="PreySpawner22" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-4778, -2621)
+
+[node name="PreySpawner23" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-5614, -2137)
+
+[node name="PreySpawner24" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-6582, -1653)
+
+[node name="PreySpawner25" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-7257, -1169)
+
+[node name="PreySpawner26" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-8739, -1855)
+
+[node name="PreySpawner27" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-9364, -1230)
+
+[node name="PreySpawner28" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-10120, -262)
+
+[node name="PreySpawner29" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-11077, -1058)
+
+[node name="PreySpawner30" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-11521, -1804)
+
+[node name="PreySpawner31" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-6764, 4657)
+
+[node name="PreySpawner32" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-7721, 3861)
+
+[node name="PreySpawner33" parent="Creatures" instance=ExtResource("2_ovd4c")]
+position = Vector2(-8165, 3115)
+
+[node name="PredatorSpawner12" parent="Creatures" instance=ExtResource("3_wrloo")]
+position = Vector2(-4274, 2490)
+plan_direction = Vector2(-0.7, -0.7)
+spawn_freq = 7000
+
+[node name="PredatorSpawner13" parent="Creatures" instance=ExtResource("3_wrloo")]
+position = Vector2(-3246, 736)
+plan_direction = Vector2(-1, 0.1)
+spawn_freq = 7100
+
+[node name="PredatorSpawner14" parent="Creatures" instance=ExtResource("3_wrloo")]
+position = Vector2(-1986, -1976)
+plan_direction = Vector2(-1, 0.3)
+spawn_freq = 6900
+
+[node name="PredatorSpawner15" parent="Creatures" instance=ExtResource("3_wrloo")]
+position = Vector2(-2550, -2631)
+plan_direction = Vector2(-1, 0.3)
+spawn_freq = 6900
+
+[node name="PredatorSpawner16" parent="Creatures" instance=ExtResource("3_wrloo")]
+position = Vector2(-5494, 5685)
+plan_direction = Vector2(-0.7, -0.7)
+spawn_freq = 7000
+
+[node name="PredatorSpawner17" parent="Creatures" instance=ExtResource("3_wrloo")]
+position = Vector2(-3652, 2069)
+plan_direction = Vector2(-1, -0.1)
+spawn_freq = 7100
+
+[node name="PredatorSpawner18" parent="Creatures" instance=ExtResource("3_wrloo")]
+position = Vector2(-1609, -529)
+plan_direction = Vector2(-1, 0)
+spawn_freq = 7500
 
 [node name="Background" type="Node2D" parent="."]
 
