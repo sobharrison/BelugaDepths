@@ -36,6 +36,7 @@ collision_mask = 30
 script = ExtResource("3_itf7t")
 
 [node name="Camera2D2" type="Camera2D" parent="."]
+zoom = Vector2(0.6, 0.6)
 
 [node name="LowerBody" type="CharacterBody2D" parent="."]
 collision_mask = 12
@@ -59,15 +60,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Life3" type="Sprite2D" parent="Health"]
-position = Vector2(-436, -301)
+position = Vector2(-662, -474)
 texture = ExtResource("6_045ji")
 
 [node name="Life2" type="Sprite2D" parent="Health"]
-position = Vector2(-499, -304)
+position = Vector2(-788, -480)
 texture = ExtResource("6_045ji")
 
 [node name="Life1" type="Sprite2D" parent="Health"]
-position = Vector2(-549, -304)
+position = Vector2(-902, -479)
 texture = ExtResource("6_045ji")
 
 [node name="GameOverGUI" type="Control" parent="."]

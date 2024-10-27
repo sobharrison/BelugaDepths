@@ -17,6 +17,11 @@ boot_splash/bg_color=Color(0.0355011, 0.164837, 0.369858, 1)
 boot_splash/image="res://belugaDepths_icon_oct_2_2024.png"
 config/icon="res://belugaDepths_icon_oct_2_2024.png"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+
 [input]
 
 ui_left={
