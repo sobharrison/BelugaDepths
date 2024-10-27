@@ -28,6 +28,12 @@ var my_life1
 
 var my_health: int = 3 
 
+var score: int = 0
+
+var gameOverGUI
+var gameOverScore
+var gameState = true
+
 func _ready():
 	multimesh.clip_children = CanvasItem.CLIP_CHILDREN_ONLY
 	
@@ -38,18 +44,22 @@ func _ready():
 	my_life1 = self.find_child("Health").find_child("Life1")
 	my_life2 = self.find_child("Health").find_child("Life2")
 	my_life3 = self.find_child("Health").find_child("Life3")
+	
+	score = 0
+	
+	gameOverGUI = self.find_child("GameOverGUI")
+	gameOverGUI.visible = false
+	gameOverScore = gameOverGUI.find_child("score")
+	
+	gameState = true
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-#	if not is_on_floor():
-#		velocity += get_gravity() * delta
-
-	# Handle jump.
-#	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-#		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	
+	if !gameState:
+		velocity.x = 0
+		velocity.y = 0
+		if Input.is_action_just_pressed("ui_accept"):
+			restart()
 	
 	# Basic movement
 	var directionx := Input.get_axis("ui_left", "ui_right")
@@ -115,6 +125,7 @@ func _physics_process(delta: float) -> void:
 		if collision_info.get_collider().get_collision_layer() == 4:
 			# Prey
 			collision_info.get_collider().eat_me()
+			score += 1
 			
 		elif collision_info.get_collider().get_collision_layer() == 8:
 			# Predator
@@ -191,4 +202,12 @@ func bitten() -> void:
 		my_life2.visible = false
 		my_life1.visible = false
 	elif my_health < 0:
-		pass
+		game_over()
+
+func game_over() -> void:
+	gameOverGUI.visible = true
+	gameOverScore.text = String.num(score)
+	gameState = false
+
+func restart() -> void:
+	get_tree().reload_current_scene()

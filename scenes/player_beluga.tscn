@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://csh4sm1xfiohm"]
+[gd_scene load_steps=12 format=3 uid="uid://csh4sm1xfiohm"]
 
 [ext_resource type="Script" path="res://Scripts/player_beluga.gd" id="1_l2xnq"]
 [ext_resource type="Texture2D" uid="uid://dqavvkcidwo03" path="res://Sprites/Beluga/belugaPlayer_10-14-2024_head.png" id="2_ctx8n"]
@@ -6,6 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://cukx2kxl7chrn" path="res://Sprites/Beluga/belugaPlayer_10-14-2024_torso.png" id="3_kn2d6"]
 [ext_resource type="Texture2D" uid="uid://ktipkhtnr3wu" path="res://Sprites/Beluga/belugaPlayer_10-14-2024_tail.png" id="4_dikfk"]
 [ext_resource type="Texture2D" uid="uid://csqsqfgan0l3o" path="res://belugaDepths_icon_oct_2_2024.png" id="6_045ji"]
+[ext_resource type="Texture2D" uid="uid://qmokkvmki0yg" path="res://Sprites/dark_ice_10-14-2024.png" id="7_i1c6i"]
+
+[sub_resource type="Theme" id="Theme_jsrnd"]
+default_font_size = 50
+
+[sub_resource type="Theme" id="Theme_2jwxf"]
+default_font_size = 25
+
+[sub_resource type="Theme" id="Theme_skgie"]
+default_font_size = 25
+
+[sub_resource type="Theme" id="Theme_avn6n"]
+default_font_size = 25
 
 [node name="Beluga2D" type="CharacterBody2D"]
 collision_mask = 14
@@ -56,3 +69,55 @@ texture = ExtResource("6_045ji")
 [node name="Life1" type="Sprite2D" parent="Health"]
 position = Vector2(-549, -304)
 texture = ExtResource("6_045ji")
+
+[node name="GameOverGUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="gameover" type="Label" parent="GameOverGUI"]
+z_index = 1
+layout_mode = 2
+offset_left = -224.0
+offset_top = -146.0
+offset_right = -137.0
+offset_bottom = -123.0
+theme = SubResource("Theme_jsrnd")
+text = "Game Over"
+
+[node name="scoretext" type="Label" parent="GameOverGUI"]
+z_index = 1
+layout_mode = 0
+offset_left = -172.0
+offset_top = -61.0
+offset_right = -42.0
+offset_bottom = -26.0
+theme = SubResource("Theme_2jwxf")
+text = "Fish Eaten:"
+
+[node name="score" type="Label" parent="GameOverGUI"]
+z_index = 1
+layout_mode = 2
+offset_left = -26.0
+offset_top = -56.0
+offset_right = 104.0
+offset_bottom = -3.0
+theme = SubResource("Theme_skgie")
+text = "0"
+
+[node name="restarttext" type="Label" parent="GameOverGUI"]
+z_index = 1
+layout_mode = 0
+offset_left = -179.0
+offset_top = 40.0
+offset_right = 90.0
+offset_bottom = 75.0
+theme = SubResource("Theme_avn6n")
+text = "Press Space to restart."
+
+[node name="Polygon2D" type="Polygon2D" parent="GameOverGUI"]
+texture_repeat = 3
+position = Vector2(-211, -144)
+texture = ExtResource("7_i1c6i")
+polygon = PackedVector2Array(192, -137, 163, -47, -19, -126, 13, -28, -158, -66, -1, 132, -170, 167, 20, 196, -101, 372, 162, 277, 251, 449, 425, 309, 294, 226, 448, 261, 332, 167, 569, 127, 339, 85, 545, -125, 277, 30, 217, -174)
