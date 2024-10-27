@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2qem4u1841b4"]
+[gd_scene load_steps=12 format=3 uid="uid://b2qem4u1841b4"]
 
 [ext_resource type="PackedScene" uid="uid://csh4sm1xfiohm" path="res://scenes/player_beluga.tscn" id="1_70xp7"]
 [ext_resource type="Texture2D" uid="uid://puaugxrd0qwl" path="res://Sprites/ice_white_texture_10-27-2024.png" id="2_ht0mp"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bfn0lyay4wyyg" path="res://Sprites/translu_ice_texture_10-27-2024.png" id="2_x3w06"]
 [ext_resource type="Texture2D" uid="uid://lsjj73dx60vt" path="res://Sprites/blue_ice_10-27-2024.png" id="3_2w4t4"]
 [ext_resource type="PackedScene" uid="uid://crieklro3l5op" path="res://scenes/PredatorSpawner.tscn" id="3_wrloo"]
-[ext_resource type="Texture2D" uid="uid://qmokkvmki0yg" path="res://Sprites/dark_ice_10-14-2024.png" id="7_wtlmb"]
+[ext_resource type="Texture2D" uid="uid://fdw6rwelehf5" path="res://Sprites/parlax/parlax_0_10-27-2024.png" id="7_6ui0u"]
+[ext_resource type="Texture2D" uid="uid://2jb1jia0u5om" path="res://Sprites/parlax/parlax_1_10-27-2024.png" id="8_knk8p"]
+[ext_resource type="Texture2D" uid="uid://jrts8yn5kluc" path="res://Sprites/parlax/parlax_2_10-27-2024.png" id="9_mmc4t"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ot0o6"]
 radius = 60.0
@@ -423,22 +425,34 @@ plan_direction = Vector2(-0.33, -1)
 spawn_freq = 6231
 
 [node name="Background" type="Node2D" parent="."]
-visible = false
 
 [node name="Parallax2D" type="Parallax2D" parent="Background"]
 scroll_scale = Vector2(0.8, 0.8)
-repeat_size = Vector2(128, 128)
-repeat_times = 10
+repeat_size = Vector2(256, 256)
+repeat_times = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D"]
-texture = ExtResource("7_wtlmb")
+modulate = Color(1, 1, 1, 0.431373)
+texture = ExtResource("7_6ui0u")
 
 [node name="Parallax2D2" type="Parallax2D" parent="Background"]
 z_index = 1
 scroll_scale = Vector2(0.3, 0.3)
 scroll_offset = Vector2(5, 0)
-repeat_size = Vector2(128, 128)
-repeat_times = 5
+repeat_size = Vector2(256, 256)
+repeat_times = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D2"]
-texture = ExtResource("2_x3w06")
+modulate = Color(1, 1, 1, 0.121569)
+texture = ExtResource("8_knk8p")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Background"]
+z_index = 2
+scroll_scale = Vector2(0.7, 0.7)
+scroll_offset = Vector2(2, 3)
+repeat_size = Vector2(512, 512)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D3"]
+modulate = Color(1, 1, 1, 0.756863)
+texture = ExtResource("9_mmc4t")
