@@ -55,3 +55,6 @@ func found_me() -> void:
 func despawn_me() -> void:
 	if spawn_time + despawn < Time.get_ticks_msec():
 		self.queue_free()
+
+func despawn_me_now() -> void:
+	self.queue_free()

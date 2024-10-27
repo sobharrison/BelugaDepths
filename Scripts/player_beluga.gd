@@ -130,6 +130,7 @@ func _physics_process(delta: float) -> void:
 		elif collision_info.get_collider().get_collision_layer() == 8:
 			# Predator
 			bitten()
+			collision_info.get_collider().despawn_me_now()
 			velocity = velocity.bounce(collision_info.get_normal())
 
 		else:

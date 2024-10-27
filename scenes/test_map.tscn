@@ -113,3 +113,9 @@ plan_direction = Vector2(-1, 0)
 [node name="PredatorSpawner2" parent="Creatures" instance=ExtResource("9_uwb8k")]
 position = Vector2(1564, -570)
 plan_direction = Vector2(-1, 1)
+
+[node name="PreySpawner2" parent="Creatures" instance=ExtResource("8_yjrbs")]
+position = Vector2(642, 103)
+
+[node name="PreySpawner3" parent="Creatures" instance=ExtResource("8_yjrbs")]
+position = Vector2(621, 1456)
