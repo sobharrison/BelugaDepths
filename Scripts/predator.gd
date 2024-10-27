@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 var plan_direction: Vector2 = Vector2(0, 0)
 
-const SPEED = 100.0
+const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-const despawn: int = 20000
+const despawn: int = 60000
 var spawn_time: int
 
 var timer: int = 0

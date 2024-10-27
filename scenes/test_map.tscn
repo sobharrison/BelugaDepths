@@ -10,12 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://0cwu54l164wt" path="res://scenes/PreySpawner.tscn" id="8_yjrbs"]
 [ext_resource type="PackedScene" uid="uid://crieklro3l5op" path="res://scenes/PredatorSpawner.tscn" id="9_uwb8k"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_ot0o6"]
+[sub_resource type="SphereMesh" id="SphereMesh_o1cd8"]
 radius = 60.0
 height = 120.0
 
 [sub_resource type="MultiMesh" id="MultiMesh_fqauj"]
-mesh = SubResource("SphereMesh_ot0o6")
+mesh = SubResource("SphereMesh_o1cd8")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g76wh"]
 shader = ExtResource("2_po726")
